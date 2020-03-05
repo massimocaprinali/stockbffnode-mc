@@ -109,7 +109,7 @@ spec:
                     echo "BUILD_NUMBER=${BUILD_NUMBER}" >> ./env-config
 
                     echo "NODE_TLS_REJECT_UNAUTHORIZED=0" >> ./env-config
-                    
+
                     cat ./env-config
                 '''
             }
@@ -248,7 +248,7 @@ spec:
             stage('Package Helm Chart') {
                 sh '''#!/bin/bash
 
-                if [[ -z "${ARTIFACTORY_ENCRPT}" ]]; then
+                if [[ -z "${ARTIFACTORY_URL}" ]]; then
                   echo "Skipping Artifactory step as Artifactory is not installed or configured"
                   exit 0
                 fi
