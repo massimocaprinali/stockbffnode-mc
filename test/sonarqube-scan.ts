@@ -20,6 +20,7 @@ async function sonarScanner() {
       'sonar.typescript.lcov.reportPaths' : 'coverage/lcov.info',
       'sonar.testExecutionReportPaths': 'test-report.xml',
       'sonar.sourceEncoding': 'UTF-8',
+      'sonar.web.javaAdditionalOpts=-Dcom.sun.net.ssl.checkRevocation=false',
     }
   }, result => {
     console.log('Sonarqube scanner result:', result);
