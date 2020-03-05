@@ -49,6 +49,8 @@ spec:
       env:
         - name: HOME
           value: ${workingDir}
+        - name: NODE_TLS_REJECT_UNAUTHORIZED
+          value: 0
     - name: ibmcloud
       image: docker.io/garagecatalyst/ibmcloud-dev:1.0.8
       tty: true
@@ -78,6 +80,8 @@ spec:
           value: ${env.NAMESPACE}
         - name: BUILD_NUMBER
           value: ${env.BUILD_NUMBER}
+        - name: NODE_TLS_REJECT_UNAUTHORIZED
+          value: 0
     - name: trigger-cd
       image: docker.io/garagecatalyst/ibmcloud-dev:1.0.8
       tty: true
@@ -104,6 +108,8 @@ spec:
                     npm run env | grep "^npm_package_version" | sed "s/npm_package_version/IMAGE_VERSION/g" >> ./env-config
                     echo "BUILD_NUMBER=${BUILD_NUMBER}" >> ./env-config
 
+                    echo "NODE_TLS_REJECT_UNAUTHORIZED=0" >> ./env-config
+                    
                     cat ./env-config
                 '''
             }
