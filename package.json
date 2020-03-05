@@ -1,6 +1,6 @@
 {
   "name": "stockbffnode-mc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "org": "my-org",
   "description": "",
   "main": "index.js",
